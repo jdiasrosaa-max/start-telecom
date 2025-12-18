@@ -2,90 +2,228 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Central de Ajuda</title>
+  <title>Central de Manuais | Start Telecom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #fff7f0;
+      color: #333;
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #ffb300, #ff6f00, #e53935);
+      padding: 30px 20px;
+      color: #fff;
+    }
+
+    header img {
+      max-height: 70px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      margin: 10px 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* CAPA PRINCIPAL */
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      position: relative;
+    }
+
+    .hero img {
+      width: 100%;
+      display: block;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 25px;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,0)
+      );
+      color: #fff;
+      text-align: left;
+    }
+
+    .hero-text h2 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+    }
+
+    .hero-text p {
+      margin: 0;
+      max-width: 650px;
+      font-size: 1rem;
+    }
+
+    /* BOTÕES */
+    .buttons {
+      margin: 50px auto;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 22px 25px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      width: 240px;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 999;
+      animation: fadeIn .3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 900px;
+      padding: 20px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
+      position: relative;
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #e53935;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      opacity: .85;
+    }
+  </style>
 </head>
 
-<body style="font-family: Arial; background:#f5f5f5; padding:20px;">
+<body>
 
-  <!-- TÍTULO -->
-  <h1>Central de Ajuda</h1>
-  <p>Selecione abaixo o modelo da sua TV e siga o passo a passo:</p>
+  <!-- HEADER -->
+  <header>
+    <img src="logo.png" alt="Start Telecom Logo">
+    <h1>Central de Manuais</h1>
+    <p>
+      Este portal foi criado para auxiliar nossos clientes com manuais claros,
+      rápidos e práticos para utilização dos serviços da Start Telecom.
+    </p>
+  </header>
 
-  <!-- MENU -->
-  <nav style="background:#ffffff; padding:12px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-bottom:30px;">
-    <strong>📺 Escolha sua TV:</strong><br><br>
-    <a href="#samsung" style="margin-right:15px;">Samsung</a>
-    <a href="#lg" style="margin-right:15px;">LG</a>
-    <a href="#outras">Outras TVs</a>
-  </nav>
-
-
-<h2>Como realizar o primeiro acesso ao app da Watch</h2>
-<img src="C:\Users\HP\Desktop\START\novo\capa.png.png"
-     alt="Primeiro acesso ao app Watch"
-     style="max-width:100%; border-radius:8px; margin-top:10px;">
-  <!-- ================= SAMSUNG ================= -->
-  <section id="samsung">
-    <h3>📺 Smart TV Samsung</h3>
-
-    <div style="position: relative; width: 100%; height: 0; padding-top: 160%;
-      box-shadow: 0 2px 8px rgba(63,69,81,0.16); margin: 1.6em 0; overflow: hidden;
-      border-radius: 8px;">
-      <iframe loading="lazy"
-        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
-        src="https://www.canva.com/design/DAG6fdszln0/rLbRUuRgFM9DMS-g3uvv9g/view?embed"
-        allowfullscreen>
-      </iframe>
+  <!-- CAPA -->
+  <section class="hero">
+    <img src="capa.png" alt="Plataforma Start Telecom em vários dispositivos">
+    <div class="hero-text">
+      <h2>Manuais e Guias de Utilização</h2>
+      <p>
+        Aqui você encontra orientações objetivas para configurar e utilizar
+        nossos serviços com facilidade e segurança.
+      </p>
     </div>
-
-    <p>
-      <a href="https://www.canva.com/design/DAG6fdszln0/rLbRUuRgFM9DMS-g3uvv9g/view"
-         target="_blank" rel="noopener">
-         Abrir tutorial Samsung em nova aba
-      </a>
-    </p>
   </section>
 
-  <hr>
+  <!-- BOTÕES -->
+  <div class="buttons">
+    <div class="btn-card" onclick="openManual('samsung')">Manual TV Samsung</div>
+    <div class="btn-card" onclick="openManual('lg')">Manual TV LG</div>
+    <div class="btn-card" onclick="openManual('outros')">Outros Manuais / Suporte</div>
+  </div>
 
-  <!-- ================= LG ================= -->
-  <section id="lg">
-    <h3>📺 Smart TV LG</h3>
-
-    <div style="position: relative; width: 100%; height: 0; padding-top: 160%;
-      box-shadow: 0 2px 8px rgba(63,69,81,0.16); margin: 1.6em 0; overflow: hidden;
-      border-radius: 8px;">
-      <iframe loading="lazy"
-        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
-        src="https://www.canva.com/design/DAG6ZsWNZow/WdSvvbm1uEKaZp3PSHrpRg/view?embed"
-        allowfullscreen>
-      </iframe>
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">Fechar ✖</button>
+      <div id="manualContent"></div>
     </div>
+  </div>
 
-    <p>
-      <a href="https://www.canva.com/design/DAG6ZsWNZow/WdSvvbm1uEKaZp3PSHrpRg/view"
-         target="_blank" rel="noopener">
-         Abrir tutorial LG em nova aba
-      </a>
-    </p>
-  </section>
+  <!-- SCRIPT -->
+  <script>
+    function openManual(type) {
+      let url = '';
 
-  <hr>
+      if (type === 'samsung') {
+        url = 'https://www.canva.com/design/DAG6fdszln0/rLbRUuRgFM9DMS-g3uvv9g/view?embed';
+      } else if (type === 'lg') {
+        url = 'https://www.canva.com/design/DAG6ZsWNZow/WdSvvbm1uEKaZp3PSHrpRg/view?embed';
+      } else {
+        url = 'https://wa.me/55SEUNUMEROAQUI';
+      }
 
-  <!-- ================= OUTRAS TVs ================= -->
-  <section id="outras">
-    <h3>📺 Outras Smart TVs</h3>
-    <p>
-      Caso sua TV não seja Samsung ou LG, entre em contato com nosso suporte para receber o passo a passo correto.
-    </p>
+      document.getElementById('manualContent').innerHTML =
+        type === 'outros'
+          ? `<p><a href="${url}" target="_blank">Clique aqui para falar com o suporte</a></p>`
+          : `<iframe src="${url}" allowfullscreen></iframe>`;
 
-    <p>
-      👉 <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank">
-      Falar com o suporte pelo WhatsApp
-      </a>
-    </p>
-  </section>
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
