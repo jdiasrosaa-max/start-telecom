@@ -10,14 +10,302 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./css/style.css">
+<style>
+/* ===================== */
+/* RESET E BASE */
+/* ===================== */
+*{box-sizing:border-box}
 
+body{
+margin:0;
+font-family:Poppins,Arial,sans-serif;
+background:#f8f9fb;
+color:#333;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(135deg,#ff9800,#ff5722,#c62828);
+padding:40px 20px;
+text-align:center;
+color:#fff;
+}
+
+header img{
+max-height:60px;
+margin-bottom:10px;
+}
+
+header h1{
+margin:15px 0 10px;
+font-size:32px;
+}
+
+header p{
+max-width:700px;
+margin:auto;
+opacity:.95;
+}
+
+/* ===================== */
+/* HERO PREMIUM */
+/* ===================== */
+.hero{
+  max-width: 1200px;
+  height: 420px;
+  margin: 50px auto 20px;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.15)
+    ),
+    url("img/capa.png") center/cover no-repeat;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-content{
+  padding: 40px;
+  color: #fff;
+  max-width: 520px;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.25),
+    transparent
+  );
+  border-radius: 18px;
+}
+
+.hero-tag{
+  background: rgba(255,255,255,.18);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.hero-content h2{
+  font-size: 36px;
+  line-height: 1.15;
+  margin: 10px 0;
+}
+
+.hero-content p{
+  font-size: 16px;
+  opacity: .95;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .hero{
+    height: 320px;
+    margin: 30px 16px;
+    border-radius: 22px;
+    background-position: right center;
+  }
+
+  .hero-content{
+    padding: 24px;
+  }
+
+  .hero-content h2{
+    font-size: 24px;
+  }
+
+  .hero-content p{
+    font-size: 14px;
+  }
+}
+
+/* ===================== */
+/* CONTAINER */
+/* ===================== */
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:60px 20px;
+text-align:center;
+}
+
+/* ===================== */
+/* CARDS */
+/* ===================== */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+perspective:1200px;
+}
+
+.card{
+background:#fff;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 22px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.3s;
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 14px 30px rgba(0,0,0,.15);
+}
+
+.card span{
+font-size:42px;
+display:block;
+margin-bottom:10px;
+}
+
+/* ===================== */
+/* ANIMAÇÕES PREMIUM */
+/* ===================== */
+
+/* Entrada elegante */
+.fade-up{
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .7s cubic-bezier(.22,.61,.36,1),
+    transform .7s cubic-bezier(.22,.61,.36,1);
+}
+
+.fade-up.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays reais */
+.fade-delay-1{ transition-delay: .15s; }
+.fade-delay-2{ transition-delay: .3s; }
+.fade-delay-3{ transition-delay: .45s; }
+
+/* ===================== */
+/* INTERAÇÃO ELEGANTE (HOVER / TOUCH) */
+/* ===================== */
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+  will-change: transform;
+}
+
+/* Desktop (mouse) */
+.card:hover{
+  transform: translateY(-8px) scale(1.015);
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+/* ===================== */
+/* EFEITO 3D PREMIUM */
+/* ===================== */
+.cards{
+  perspective: 1200px;
+}
+
+.card{
+  transform-style: preserve-3d;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+
+/* Mobile (toque) */
+.card:active{
+  transform: scale(.98);
+}
+
+
+/* ===================== */
+/* WHATSAPP FLUTUANTE CHAMATIVO */
+/* ===================== */
+.whatsapp-button-landing{
+  position: fixed;
+  bottom: 90px; /* MAIS PARA CIMA */
+  right: 24px;
+  background: #25d366;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  z-index: 9999;
+  animation: pulseWhatsapp 1.6s infinite;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.whatsapp-button-landing:hover{
+  animation: none;
+  transform: scale(1.08);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.35);
+}
+
+.whatsapp-icon-landing{
+  background: #fff;
+  color: #25d366;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* ANIMAÇÃO DE PULSAR */
+@keyframes pulseWhatsapp{
+  0%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37,211,102,0.6);
+  }
+  70%{
+    transform: scale(1.06);
+    box-shadow: 0 0 0 18px rgba(37,211,102,0);
+  }
+  100%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
+
+/* MOBILE */
+@media (max-width:600px){
+  .whatsapp-button-landing{
+    padding: 14px;
+    border-radius: 50%;
+    bottom: 80px;
+  }
+  .whatsapp-button-landing span{
+    display: none;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-<img src="./logo.png" alt="Logo Start Telecom" loading="lazy">
+<img src="img/logo.png" alt="Logo Start Telecom" loading="lazy">
 <h1 class="fade-up">Central de Manuais e Suporte Start Telecom</h1>
 <p class="fade-up fade-delay-1">
 Aprenda a configurar seus dispositivos com guias simples, rápidos e suporte especializado.
@@ -36,52 +324,52 @@ Aprenda a configurar seus dispositivos com guias simples, rápidos e suporte esp
 
 <section class="cards">
 
-<article class="card fade-up" data-link="samsung.html">
-  <span>📺</span>
-  <h3>Watch TV na Smart TV Samsung</h3>
-  <p>Guia completo de instalação e uso.</p>
+<article class="card fade-up" onclick="location.href='samsung.html'">
+<span>📺</span>
+<h3>Watch TV na Smart TV Samsung</h3>
+<p>Guia completo de instalação e uso.</p>
 </article>
 
-<article class="card fade-up" data-link="lg.html">
-  <span>📺</span>
-  <h3>Watch TV na Smart TV LG</h3>
-  <p>Configuração passo a passo.</p>
+<article class="card fade-up fade-delay-1" onclick="location.href='lg.html'">
+<span>📺</span>
+<h3>Watch TV na Smart TV LG</h3>
+<p>Configuração passo a passo.</p>
 </article>
 
-<article class="card fade-up" data-link="century.html">
-  <span>📺</span>
-  <h3>Stick TV Century</h3>
-  <p>Instalação simples e rápida.</p>
+<article class="card fade-up fade-delay-2" onclick="location.href='stick-century.html'">
+<span>📺</span>
+<h3>Stick TV Century</h3>
+<p>Instalação simples e rápida.</p>
 </article>
 
-<article class="card fade-up" data-link="tv-box-aquario.html">
-  <span>📺</span>
-  <h3>TV Box Aquário</h3>
-  <p>Aprenda a configurar corretamente.</p>
+<article class="card fade-up" onclick="location.href='tv-box-aquario.html'">
+<span>📺</span>
+<h3>TV Box Aquário</h3>
+<p>Aprenda a configurar corretamente.</p>
 </article>
 
-<article class="card fade-up" data-link="tcl.html">
-  <span>📺</span>
-  <h3>Smart TV TCL</h3>
-  <p>Manual completo de utilização.</p>
+<article class="card fade-up fade-delay-1" onclick="location.href='tcl.html'">
+<span>📺</span>
+<h3>Smart TV TCL</h3>
+<p>Manual completo de utilização.</p>
 </article>
 
-<article class="card fade-up" data-link="fire-stick.html">
-  <span>📺</span>
-  <h3>Fire Stick Amazon</h3>
-  <p>Configuração do zero.</p>
+<article class="card fade-up fade-delay-2" onclick="location.href='fire-stick.html'">
+<span>📺</span>
+<h3>Fire Stick Amazon</h3>
+<p>Configuração do zero.</p>
 </article>
 
-<article class="card fade-up" data-link="roku.html">
-  <span>📺</span>
-  <h3>TV Box Roku</h3>
-  <p>Instalação e dicas de uso.</p>
+<article class="card fade-up" onclick="location.href='roku.html'">
+<span>📺</span>
+<h3>TV Box Roku</h3>
+<p>Instalação e dicas de uso.</p>
 </article>
 
-<article class="card fade-up" data-link="primeiro-acesso.html">
-  <span>📺</span>
-  <h3>Primeiro acesso ao Watch TV</h3>
-  <p>Ative sua conta corretamente.</p>
+<article class="card fade-up fade-delay-1" onclick="location.href='primeiro-acesso.html'">
+<span>📺</span>
+<h3>Primeiro acesso ao Watch TV</h3>
+<p>Ative sua conta corretamente.</p>
 </article>
 
 </section>
@@ -101,10 +389,45 @@ Aprenda a configurar seus dispositivos com guias simples, rápidos e suporte esp
   <div class="whatsapp-icon-landing">💬</div>
   <span>Fale com nosso Suporte</span>
 </a>
+<script>
+/* ===================== */
+/* ANIMAÇÃO DE ENTRADA */
+/* ===================== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
 
-<script src="./JS/script.js"></script>
+document.querySelectorAll('.fade-up').forEach(el => {
+  observer.observe(el);
+});
+
+/* ===================== */
+/* EFEITO INTERATIVO ELEGANTE NOS CARDS */
+/* ===================== */
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) / 30;
+    const moveY = (y - rect.height / 2) / 30;
+
+    card.style.transform =
+  `translateY(-6px) rotateX(${-moveY}deg) rotateY(${moveX}deg)`;
+
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+</script>
+
 
 </body>
 </html>
-
-
