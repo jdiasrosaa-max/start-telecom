@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
   
@@ -19,14 +20,20 @@
 
 body{
 margin:0;
-font-family:Poppins,Arial,sans-serif;
+font-family: 'DM Sans', system-ui, sans-serif;
 background: transparent;
 color:#000000;
+padding-top: 90px;
+}
+h1, h2, h3, .topbar-tag{
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  overflow-x: hidden;
 }
 
-
 /* HEADER */
-header{
+.header-hero{
   background:
     radial-gradient(
       1000px circle at 50% -20%,
@@ -38,16 +45,16 @@ header{
       #ff6a1a,
       #ff5722
     );
-  padding:90px 20px 80px;
+  padding: 50px 20px 35px;
   text-align:center;
   color:#ffffff;
 }
 
-
 header img{
   position:relative;
   z-index:1;
-  max-height:88px;
+  max-height:50px;
+  margin-bottom:18px;
   opacity:.95;
 }
 
@@ -55,22 +62,26 @@ header img{
 header h1{
   position:relative;
   z-index:1;
-  font-size:40px;
+  font-size:64px;
   font-weight:600;
   color:#1a1a1a;
-  letter-spacing:-0.6px;
-  margin:24px 0 14px;
+  letter-spacing:-0.4px;
+  margin:16px 0 10px;
 }
 
 
 header p{
   position:relative;
   z-index:1;
-  max-width:680px;
+  max-width:600px;
   margin:auto;
-  font-size:16px;
-  color:#444;
+  font-size:15px;
+  color:#000000;
   line-height:1.6;
+}
+
+header.scroll-section{
+  min-height: 90vh;
 }
 
 header::before{
@@ -91,8 +102,6 @@ header::before{
   filter: blur(60px);
   z-index:0;
 }
-
-
 
 /* ===================== */
 /* HERO PREMIUM */
@@ -139,27 +148,30 @@ header::before{
 }
 
 .hero-content h2{
-  font-size: 36px;
-  line-height: 1.15;
-  margin: 10px 0;
+  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .hero-content p{
-  font-size: 16px;
-  opacity: .95;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: .9;
 }
 
 /* Mobile */
 @media(max-width:768px){
   .hero{
-    height: 320px;
-    margin: 30px 16px;
+    height: 56px;
+    margin-top: 200px; /* topbar + respiro */
     border-radius: 22px;
     background-position: right center;
   }
-
+.topbar img{
+    height: 30px;
+  }
   .hero-content{
-    padding: 24px;
+    padding-top: 56px;
   }
 
   .hero-content h2{
@@ -178,14 +190,14 @@ footer{
   opacity:.85;
 }
 
-
 /* ===================== */
 /* CONTAINER */
 /* ===================== */
 .container{
+width: 100%;
 max-width:1200px;
 margin:0 auto;
-padding:70px 20px;
+padding: 0 16px;
 text-align:center;
 }
 .container h2{
@@ -193,7 +205,6 @@ text-align:center;
   font-weight:700;
   color:#000000;
 }
-
 .container h2::after{
   content:"";
   display:block;
@@ -215,14 +226,12 @@ margin: top 40px;
 perspective:1200px;
 }
 
-
 .card:hover{
 transform:translateY(-10px) scale(1.03);
 box-shadow:
   0 20px 45px rgba(0,0,0,.45),
   0 0 25px rgba(255,87,34,.4);
 }
-
 
 .card span{
 font-size:42px;
@@ -242,12 +251,10 @@ margin-bottom:10px;
     opacity .7s cubic-bezier(.22,.61,.36,1),
     transform .7s cubic-bezier(.22,.61,.36,1);
 }
-
 .fade-up.show{
   opacity: 1;
   transform: translateY(0);
 }
-
 /* Delays reais */
 .fade-delay-1{ transition-delay: .15s; }
 .fade-delay-2{ transition-delay: .3s; }
@@ -279,11 +286,15 @@ margin-bottom:10px;
     0 0 28px rgba(255,87,34,.45);
 }
 
-
 /* Desktop (mouse) */
 .card:hover{
   transform: translateY(-8px) scale(1.015);
   box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+/* Mobile (toque) */
+.card:active{
+  transform: scale(.98);
 }
 /* ===================== */
 /* EFEITO 3D PREMIUM */
@@ -298,13 +309,6 @@ margin-bottom:10px;
     transform .35s ease,
     box-shadow .35s ease;
 }
-
-
-/* Mobile (toque) */
-.card:active{
-  transform: scale(.98);
-}
-
 
 /* ===================== */
 /* WHATSAPP FLUTUANTE CHAMATIVO */
@@ -347,8 +351,6 @@ margin-bottom:10px;
   font-size: 20px;
 }
 
-
-
 /* ANIMAÇÃO DE PULSAR */
 @keyframes pulseWhatsapp{
   0%{
@@ -385,7 +387,6 @@ margin-bottom:10px;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-
   background:
     radial-gradient(
       1200px circle at 10% 20%,
@@ -403,15 +404,12 @@ margin-bottom:10px;
       #f09861,
       #cf7676
     );
-
   background-size:
     200% 200%,
     200% 200%,
     100% 100%;
-
   animation: bgMove 25s ease-in-out infinite;
 }
-
 @keyframes bgMove{
   0%{
     background-position:
@@ -433,6 +431,273 @@ margin-bottom:10px;
   }
 }
 
+/* Suavidade tipo site premium */
+@media (prefers-reduced-motion: no-preference){
+  html{
+    scroll-behavior: smooth;
+  }
+}
+/* BARRA FIXA */
+.topbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px; /* elegante */
+  background: rgba(255,106,26,0.92);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+body{
+  padding-top: 72px;
+}
+
+/* LOGO */
+.logo{
+  height: 200px;
+}
+/* TEXTO CENTRAL REAL */
+.topbar-tag{
+  font-size: 24px;
+  font-weight: 1200;
+  letter-spacing: .90px;
+  white-space: nowrap;
+}
+
+/* ===================== */
+/* AJUSTES MOBILE */
+/* ===================== */
+@media (max-width: 768px){
+
+  /* Topbar continua correta */
+  body{
+    padding-top: 56px; /* mantém distância da topbar fixa */
+  }
+
+  /* HERO */
+  .hero{
+    height: auto;                 /* deixa crescer conforme conteúdo */
+    min-height: 300px;
+    margin: 24px 16px 20px;        /* respiro lateral */
+    border-radius: 20px;
+    align-items: center;           /* centraliza vertical */
+    justify-content: center;       /* centraliza horizontal */
+  }
+
+  .hero-content{
+    max-width: 100%;
+    padding: 24px;
+    text-align: center;            /* TEXTO CENTRAL */
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.35),
+      transparent
+    );
+  }
+
+  .hero-content h2{
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .hero-content p{
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* TAG (se usar no hero) */
+  .hero-tag{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+.hero{
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+/* CONTAINER INTERNO */
+.topbar-inner{
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | centro | telefone */
+  align-items: center;
+}
+
+/* TEXTO CENTRAL REAL */
+.topbar-tag{
+  justify-self: center;   /* CENTRALIZA DE VERDADE */
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  white-space: nowrap;
+}
+
+/* TELEFONE */
+.topbar-phone{
+  justify-self: end;
+  font-size: 18px;   /* AUMENTE AQUI */
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* ===== LETREIRO INFINITO CORRIGIDO ===== */
+.logos-infinite {
+  width: 150vw;          /* ocupa a tela inteira */
+  overflow: hidden;
+  padding: 22px 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); /* garante alinhamento total */
+  background: transparent;
+}
+
+.logos-track {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+  animation: scroll 18s linear infinite;
+  min-width: 200%;       /* garante o movimento infinito */
+}
+
+.logos-track img {
+  height: 65px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes heroMove{
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-100%); }
+  50%  { transform: translateX(-200%); }
+  75%  { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+/* ===== slider ===== */
+.hero-slider{
+  width: 100%;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  margin: 30px auto 10px;
+  max-width: 1400px;   /* limite confortável no desktop */
+}
+
+.slide{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .6s;
+}
+
+.slide.active{
+  opacity: 1;
+}
+
+.slide img{
+width: 100%;
+height: 100%; 
+object-fit: center top;   /* 👉 A IMAGEM VIROU “PÁGINA” */
+display: block;
+object-position: center;
+}
+
+/* setas */
+.hero-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 2;          /* 👉 garante clique */
+}
+
+.hero-prev{ left: 12px; }
+.hero-next{ right: 12px; }
+
+/* bolinhas */
+.hero-dots{
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.hero-dots button{
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: #d0d0d0;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.hero-dots button.active{
+  background: #3b82f6;
+  opacity: 1;
+}
+
+
+/* ---- RESPONSIVO ---- */
+@media (max-width: 768px){
+  .hero-slider{
+    height: 240px;
+  }
+}
+@media (max-width: 480px){
+  .hero-slider{
+    height: 190px;
+  }
+}
+.cta{
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background:#ff6a1a;
+  color:#fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.section-subtitle{
+  margin-top: 8px;
+  font-size: 25px;
+  color: #000000;
+  text-align: center;
+}
+
+
 </style>
 </head>
 
@@ -440,24 +705,50 @@ margin-bottom:10px;
 
 <div class="bg-animated"></div>
 
-<header>
-<img src="img/logo.png" alt="Logo Start Telecom" loading="lazy">
-<h1 class="fade-up">Central de Manuais e Suporte Start Telecom</h1>
-<p class="fade-up fade-delay-1">
-Aprenda a configurar seus dispositivos com guias simples, rápidos e suporte especializado.
-</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <img src="img/logo.png" alt="Start Telecom" class="logo">
 
+    <span class="hero-tag topbar-tag">
+      Central de Suporte
+    </span>
+
+    <a href="tel:5136002760" class="topbar-phone">
+  📞 (51) 3600-2760
+</a>
+  </div>
 </header>
 
-<section class="hero fade-up fade-delay-2">
-<div class="hero-content">
-<h2>Configurações Simplificadas</h2>
-<p>Smart TVs, TV Box, Watch TV e muito mais.</p>
+<div class="hero-slider" id="heroSlider">
+
+  <div class="slide active">
+    <a href="https://starttelecom.psi.br/" target="_blank" rel="noopener">
+      <img src="img/slider-3.png" alt="">
+    </a>
+  </div>
+
+  <div class="slide">
+    <a href="https://starttelecom.psi.br/" target="_blank" rel="noopener">
+      <img src="img/slider-5.png" alt="">
+    </a>
+  </div>
+
+  <div class="slide">
+    <a href="https://starttelecom.psi.br/#planos" target="_blank" rel="noopener">
+      <img src="img/slider-6.png" alt="">
+    </a>
+  </div>
+
+  <button class="hero-arrow hero-prev">‹</button>
+  <button class="hero-arrow hero-next">›</button>
+  <div class="hero-dots"></div>
 </div>
-</section>
 
 <main class="container">
 <h2 class="fade-up">Escolha seu manual</h2>
+<p class="section-subtitle">
+  Guias simples para configurar seu serviço em poucos minutos.
+</p>
 
 <section class="cards">
 
@@ -503,18 +794,63 @@ Aprenda a configurar seus dispositivos com guias simples, rápidos e suporte esp
 <p>Instalação e dicas de uso.</p>
 </article>
 
-<article class="card fade-up fade-delay-3" onclick="location.href='primeiro-acesso-watch/index.html'">
+<article class="card fade-up fade-delay-1"
+  onclick="location.href='primeiro-acesso-watch'">
+  
   <span>📺</span>
   <h3>Primeiro acesso ao Watch TV</h3>
   <p>Ative sua conta corretamente.</p>
 </article>
+
+<!-- LETREIRO DE SERVIÇOS OFERECIDOS -->
+<section class="logos-infinite">
+  <div class="logos-track">
+
+    <!-- ícones -->
+    <img src="img/telefonia-fixa.png" alt="telefonia tixa">
+    <img src="img/camera-wifi.png" alt="câmera wi-fi">
+    <img src="img/noping.png" alt="noping">
+    <img src="img/ebooks.png" alt="e-books">
+    <img src="img/looke.png" alt="looke">
+    <img src="img/hbo-max.png" alt="hbo max">
+    <img src="img/disney-plus.png" alt="disney disney-plus">
+    <img src="img/globo.png" alt="globo">
+    <img src="img/start.png" alt="start">
+    <img src="img/watch.png" alt="watch">
+
+    <!-- repetição (para rolagem contínua) -->
+    <img src="img/telefonia-fixa.png" alt="telefonia tixa">
+    <img src="img/camera-wifi.png" alt="câmera wi-fi">
+    <img src="img/noping.png" alt="noping">
+    <img src="img/ebooks.png" alt="e-books">
+    <img src="img/looke.png" alt="looke">
+    <img src="img/hbo-max.png" alt="hbo max">
+    <img src="img/disney-plus.png" alt="disney disney-plus">
+    <img src="img/globo.png" alt="globo">
+    <img src="img/start.png" alt="start">
+    <img src="img/watch.png" alt="watch">
+
+<!-- repetição (para rolagem contínua) -->
+    <img src="img/telefonia-fixa.png" alt="telefonia tixa">
+    <img src="img/camera-wifi.png" alt="câmera wi-fi">
+    <img src="img/noping.png" alt="noping">
+    <img src="img/ebooks.png" alt="e-books">
+    <img src="img/looke.png" alt="looke">
+    <img src="img/hbo-max.png" alt="hbo max">
+    <img src="img/disney-plus.png" alt="disney disney-plus">
+    <img src="img/globo.png" alt="globo">
+    <img src="img/start.png" alt="start">
+    <img src="img/watch.png" alt="watch">
+
+  </div>
+</section>
 
 
 </section>
 </main>
 
 <footer>
-© 2025 Start Telecom — Todos os direitos reservados
+© 2025 Jéssica Dias — Start Telecom Todos os direitos reservados
 </footer>
 
 
@@ -565,14 +901,79 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.transform = '';
   });
 });
+let lastScroll = 0;
+const topbar = document.querySelector('.topbar');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll <= 10) {
+    topbar.classList.remove('hide');
+    return;
+  }
+
+  if (currentScroll > lastScroll) {
+    // rolando para baixo
+    topbar.classList.add('hide');
+  } else {
+    // rolando para cima
+    topbar.classList.remove('hide');
+  }
+
+  lastScroll = currentScroll;
+});
+
+/* ===================== */
+/* EFEITO INTERATIVO ELEGANTE NOS folders */
+/* ===================== */
+const slides = document.querySelectorAll("#heroSlider .slide");
+const prev = document.querySelector(".hero-prev");
+const next = document.querySelector(".hero-next");
+const dotsContainer = document.querySelector(".hero-dots");
+
+let index = 0;
+
+// cria as bolinhas
+slides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if(i === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => goTo(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".hero-dots button");
+
+function update(){
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
+
+function goTo(i){
+  index = i;
+  update();
+}
+
+prev.onclick = () => {
+  index = (index - 1 + slides.length) % slides.length;
+  update();
+};
+
+next.onclick = () => {
+  index = (index + 1) % slides.length;
+  update();
+};
+
+// auto-play opcional
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  update();
+}, 6000);
 
 </script>
 
 
 </body>
 </html>
-
-
-
-
-
