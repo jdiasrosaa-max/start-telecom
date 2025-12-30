@@ -190,12 +190,13 @@ margin:0 auto;
 padding: 0 16px;
 text-align:center;
 }
-.container h2{
-  font-size:32px;
-  font-weight:700;
-  color:#000000;
+.container > h2{
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  margin-bottom: 10px;
 }
-.container h2::after{
+.container > h2::after{
   content:"";
   display:block;
   width:60px;
@@ -204,59 +205,13 @@ text-align:center;
   margin:14px auto 0;
   border-radius:10px;
 }
-
-/* ===================== */
-/* CARDS */
-/* ===================== */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap: 28px;
-margin-top: 40px;
-perspective:1200px;
-}
-.card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.card:hover{
-transform: translateY(-8px);
-box-shadow:
-  0 20px 45px rgba(0,0,0,.45),
-  0 0 25px rgba(255,87,34,.4);
-}
-
-.card span{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 52px;        /* 🔥 espaço fixo */
-  font-size: 40px;
-  margin-bottom: 14px;
-}
-
-.card h3{
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-align: center;
-
-  min-height: 42px;   /* 🔥 todos com mesma altura */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.card p{
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
-  text-align: center;
-
-  min-height: 42px;   /* 🔥 padronização total */
+.section-subtitle{
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 56px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Entrada elegante */
@@ -275,53 +230,6 @@ box-shadow:
 .fade-delay-1{ transition-delay: .15s; }
 .fade-delay-2{ transition-delay: .3s; }
 .fade-delay-3{ transition-delay: .45s; }
-
-/* ===================== */
-/* INTERAÇÃO ELEGANTE (HOVER / TOUCH) */
-/* ===================== */
-.card{
-  background: linear-gradient(145deg,#ffffff,#f4f4f4);
-  padding:32px 26px;
-  border-radius:22px;
-  box-shadow:
-    0 12px 35px rgba(0,0,0,.35),
-    0 0 0 1px rgba(255,152,0,.15);
-  cursor:pointer;
-  color:#1a1a1a;
-  transform-style:preserve-3d;
-  will-change: transform;
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-
-/* Mobile (toque) */
-.card:active{
-  transform: scale(.98);
-}
-/* ===================== */
-/* EFEITO 3D PREMIUM */
-/* ===================== */
-.cards{
-  perspective: 1200px;
-}
-
-.card{
-  transform-style: preserve-3d;
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-.card h3{
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: 10px;
-  text-align: center;
-
-  min-height: 42px;   /* 🔥 força TODOS a mesma altura */
-}
 
 /* ===================== */
 /* WHATSAPP FLUTUANTE CHAMATIVO */
@@ -477,7 +385,7 @@ body{
 /* TEXTO CENTRAL REAL */
 .topbar-tag{
   font-size: 24px;
-  font-weight: 1200;
+  font-weight: 700;
   letter-spacing: .90px;
   white-space: nowrap;
 }
@@ -566,35 +474,54 @@ body{
   align-items: center;
   gap: 12px;
 }
-/* ===== LETREIRO INFINITO CORRIGIDO ===== */
-.logos-infinite {
+/* ===== LETREIRO INFINITO DEFINITIVO ===== */
+.logos-infinite{
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
-  padding: 22px 0;
-  position: relative;
-  background: transparent;
+  padding: 24px 0;
 }
 
-.logos-track {
+.logos-track{
   display: flex;
-  gap: 70px;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.logos-group{
+  display: flex;
   align-items: center;
-  animation: scroll 18s linear infinite;
-  min-width: max-content;     
+  gap: 72px;
 }
 
-.logos-track img {
-  height: 65px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+.logos-group img{
+  height: 52px;
+  flex-shrink: 0;
+  opacity: .9;
 }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* movimento real */
+@keyframes marquee{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
 }
 
+/* desktop */
+@media (min-width:1024px){
+  .logos-group img{
+    height: 56px;
+  }
+}
+
+/* mobile */
+@media (max-width:600px){
+  .logos-group img{
+    height: 42px;
+  }
+}
 
 @keyframes heroMove{
   0%   { transform: translateX(0); }
@@ -703,12 +630,7 @@ object-position: center top;
   font-weight: 700;
   cursor: pointer;
 }
-.section-subtitle{
-  margin-top: 8px;
-  font-size: 25px;
-  color: #000000;
-  text-align: center;
-}
+
 html, body{
   max-width: 100%;
   overflow-x: hidden;
@@ -740,6 +662,201 @@ img{
     width: auto;
   }
 }
+@media (min-width: 1024px){
+  .logos-infinite{
+    padding: 24px 0;
+  }
+
+  .logos-track{
+    gap: 72px;              /* mais respiro no desktop */
+    animation-duration: 35s; /* movimento mais elegante */
+  }
+
+  .logos-track img{
+    height: 48px;           /* logos maiores no desktop */
+    opacity: .9;
+  }
+}
+.manual-card:active{
+  transform: scale(.98);
+}
+.manual-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.manual-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0,0,0,.35);
+}
+
+.manual-card img{
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.manual-categoria h2{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 48px;
+  letter-spacing: -0.6px;
+}
+.manual-categoria h2::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:4px;
+  background:#ff5722;
+  border-radius:999px;
+  margin:14px auto 0;
+}
+.manual-categoria{
+  background: transparent;     
+  padding: 64px 0;            
+  margin: 0;
+}
+.manual-card span{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+.manual-card{
+  width: 100%;
+  max-width: 340px;
+  min-height: 240px;
+  background: linear-gradient(145deg,#ffffff,#f4f4f4);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  text-decoration: none;
+  color:#1a1a1a;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.menu-rapido{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 30px 0 40px;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px){
+  .manual-categoria{
+    padding: 36px 18px;
+    margin: 48px 0;
+    gap: 18px;
+  }
+}
+.menu-rapido a{
+  background: rgba(255,255,255,.9);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #ff5722;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.menu-rapido a:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+}
+.btn-voltar{
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  z-index: 9999;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn-voltar:hover{
+  transform: scale(1.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,.45);
+}
+
+.menu-rapido a:target,
+.menu-rapido a.active{
+  background:#ff5722;
+  color:#fff;
+}
+.topbar.hide{
+  transform: translateY(-100%);
+  transition: transform .3s ease;
+}
+.btn-top{
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 
+    opacity .3s ease,
+    transform .3s ease,
+    background .2s;
+  z-index: 9999;
+}
+
+.btn-top:hover{
+  background: rgba(0,0,0,.85);
+}
+
+/* visível */
+.btn-top.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* mobile um pouco menor */
+@media (max-width:600px){
+  .btn-top{
+    left: auto;
+    right: 24px;
+    bottom: 140px; /* acima do WhatsApp */
+  }
+}
+
+.btn-top{
+  transform: translateY(10px) rotate(-10deg);
+}
+
+.btn-top.show{
+  transform: translateY(0) rotate(0deg);
+}
 
 </style>
 </head>
@@ -767,86 +884,126 @@ img{
 
   <div class="slide active">
     <a href="https://starttelecom.psi.br/" target="_blank" rel="noopener">
-      <img src="img/slider-3.png" alt="">
+      <img src="img/slider-3.png" alt="Planos Start Telecom">
     </a>
   </div>
 
   <div class="slide">
     <a href="https://starttelecom.psi.br/" target="_blank" rel="noopener">
-      <img src="img/slider-5.png" alt="">
+      <img src="img/slider-5.png" loading="lazy" alt="Serviços Start Telecom">
     </a>
   </div>
 
   <div class="slide">
     <a href="https://starttelecom.psi.br/#planos" target="_blank" rel="noopener">
-      <img src="img/slider-6.png" alt="">
+      <img src="img/slider-6.png" loading="lazy" alt="Planos de Internet Start Telecom">
     </a>
   </div>
 
   <button class="hero-arrow hero-prev">‹</button>
   <button class="hero-arrow hero-next">›</button>
   <div class="hero-dots"></div>
+ </div>
+
 </div>
 
+<nav class="menu-rapido fade-up">
+  <a href="#watchtv">🖥️ Watch TV</a>
+  <a href="#dispositivos">⚙️  Dispositivos</a>
+  <a href="#servicos">🔑🎬 Serviços</a>
+</nav>
+
+
 <main class="container">
+
   <h2 class="fade-up">Escolha seu manual</h2>
   <p class="section-subtitle">
     Guias simples para configurar seu serviço em poucos minutos.
   </p>
 
-<section class="cards">
+  <!-- 🖥️ Watch TV -->
+  <section id="watchtv" class="manual-categoria fade-up fade-delay-1">
+  <h2>🖥️ Watch TV</h2>
 
-<article class="card fade-up" onclick="location.href='samsung.html'">
-<span>📺</span>
-<h3>Watch TV na Smart TV Samsung</h3>
-<p>Guia completo de instalação e uso.</p>
-</article>
+  <div class="manual-cards">
+    <a class="manual-card" href="watchtv-samsung.html">
+      <img src="img/samsung.png" alt="Watch TV Samsung">
+      <span>Watch na Smart TV Samsung</span>
+    </a>
 
-<article class="card fade-up fade-delay-1" onclick="location.href='lg.html'">
-<span>📺</span>
-<h3>Watch TV na Smart TV LG</h3>
-<p>Configuração passo a passo.</p>
-</article>
+    <a class="manual-card" href="watchtv-lg.html">
+      <img src="img/lg.png" alt="Watch TV LG">
+      <span>Watch na Smart TV LG</span>
+    </a>
 
-<article class="card fade-up fade-delay-2" onclick="location.href='stick-century.html'">
-<span>📺</span>
-<h3>Stick TV Century</h3>
-<p>Instalação simples e rápida.</p>
-</article>
+    <a class="manual-card" href="stick-century.html">
+      <img src="img/stick century.png" alt="Stick TV Century">
+      <span>Watch na Stick TV Century</span>
+    </a>
 
-<article class="card fade-up" onclick="location.href='tv-box-aquario.html'">
-<span>📺</span>
-<h3>TV Box Aquário</h3>
-<p>Aprenda a configurar corretamente.</p>
-</article>
+    <a class="manual-card" href="tvbox-aquario.html">
+      <img src="img/aquario.png" alt="TV Box Aquário">
+      <span>Watch na TV Box Aquário</span>
+    </a>
 
-<article class="card fade-up fade-delay-1" onclick="location.href='tcl.html'">
-<span>📺</span>
-<h3>Smart TV TCL</h3>
-<p>Manual completo de utilização.</p>
-</article>
+    <a class="manual-card" href="watchtv-lg.html">
+      <img src="img/lg.png" alt="Watch TV LG">
+      <span>Watch na TV Android</span>
+    </a>
 
-<article class="card fade-up fade-delay-2" onclick="location.href='fire-stick.html'">
-<span>📺</span>
-<h3>Fire Stick Amazon</h3>
-<p>Configuração do zero.</p>
-</article>
+    <a class="manual-card" href="watchtv-lg.html">
+      <img src="img/lg.png" alt="Watch TV LG">
+      <span>Watch na Smart TV Philips</span>
+    </a>
+  </div>
+</section>
 
-<article class="card fade-up" onclick="location.href='roku.html'">
-<span>📺</span>
-<h3>TV Box Roku</h3>
-<p>Instalação e dicas de uso.</p>
-</article>
+  <!-- ⚙️  Dispositivos -->
+  <section id="dispositivos" class="manual-categoria fade-up fade-delay-2">
 
-<article class="card fade-up fade-delay-1"
- onclick="location.href='primeiro-acesso-watch.html'">
-  <span>📺</span>
-  <h3>Primeiro acesso ao Watch TV</h3>
-  <p>Ative sua conta corretamente.</p>
-</article>
+  <h2>⚙️  Configurar dispositivos</h2>
 
-</section> 
+  <div class="manual-cards">
+    <a class="manual-card" href="firestick.html">
+      <img src="img/stick century.png" alt="Fire Stick Century">
+      <span>Configurando sua Stick TV Century</span>
+    </a>
+
+    <a class="manual-card" href="roku.html">
+      <img src="img/aquario.png" alt="Tv Box Aquario">
+      <span>Configurando sua TV Box Aquario</span>
+    </a>
+
+    <a class="manual-card" href="roku.html">
+      <img src="img/roku.png" alt="Fire Stick Roku">
+      <span>Configurando sua Roku TV</span>
+    </a>
+  </div>
+</section>
+
+  <!-- 🔑🎬 Serviços -->
+  <section id="servicos" class="manual-categoria fade-up fade-delay-3">
+    <h2>🔑🎬 Ativar serviços</h2>
+
+    <div class="manual-cards">
+      <a class="manual-card" href="hbo.html">
+        <img src="img/hbo-max.png" alt="HBO Max">
+        <span>Ativar HBO Max</span>
+      </a>
+
+      <a class="manual-card" href="watchtv-primeiro-acesso.html">
+       <img src="img/watchh.png" alt="Primeiro acesso Watch TV">
+        <span>Primeiro acesso a Watch</span>
+      </a>
+      <a class="manual-card" href="cdn-primeiro-acesso.html">
+        <img src="img/cdn.png" alt="Primeiro acesso a CDN">
+        <span>Primeiro acesso a CDN</span>
+      </a>
+    </div>
+  </section>
+
 </main>
+
 <!-- LETREIRO DE SERVIÇOS OFERECIDOS -->
 <section class="logos-infinite">
   <div class="logos-track">
@@ -882,6 +1039,9 @@ img{
 © 2025 Jéssica Dias — Start Telecom Todos os direitos reservados
 </footer>
 
+<a href="javascript:void(0)" class="btn-top" id="btnTop" aria-label="Voltar ao topo">
+  ↑
+</a>
 
 <!-- BOTÃO WHATSAPP PROFISSIONAL -->
 <a
@@ -895,7 +1055,15 @@ img{
 </a>
 <script>
 /* ===================== */
-/* ANIMAÇÃO DE ENTRADA */
+/* ELEMENTOS */
+/* ===================== */
+const topbar = document.querySelector('.topbar');
+const btnTop = document.getElementById('btnTop');
+const menuLinks = document.querySelectorAll('.menu-rapido a');
+const sections = document.querySelectorAll('.manual-categoria');
+
+/* ===================== */
+/* FADE UP */
 /* ===================== */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -905,33 +1073,55 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 
-document.querySelectorAll('.fade-up').forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ===================== */
+/* SCROLL: HEADER + BOTÃO + MENU */
+/* ===================== */
 let lastScroll = 0;
-const topbar = document.querySelector('.topbar');
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
+  const currentScroll = window.scrollY;
 
+  /* HEADER SOME / APARECE */
   if (currentScroll <= 10) {
     topbar.classList.remove('hide');
-    return;
-  }
-
-  if (currentScroll > lastScroll) {
-    // rolando para baixo
+  } else if (currentScroll > lastScroll) {
     topbar.classList.add('hide');
   } else {
-    // rolando para cima
     topbar.classList.remove('hide');
   }
+
+  /* BOTÃO VOLTAR AO TOPO */
+  btnTop.classList.toggle('show', currentScroll > 400);
+
+  /* MENU ATIVO */
+  let current = '';
+  sections.forEach(section => {
+    if (currentScroll >= section.offsetTop - 120) {
+      current = section.id;
+    }
+  });
+
+  menuLinks.forEach(link => {
+    link.classList.toggle(
+      'active',
+      link.getAttribute('href') === `#${current}`
+    );
+  });
 
   lastScroll = currentScroll;
 });
 
 /* ===================== */
-/* EFEITO INTERATIVO ELEGANTE NOS folders */
+/* BOTÃO VOLTAR AO TOPO */
+/* ===================== */
+btnTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ===================== */
+/* SLIDER HERO */
 /* ===================== */
 const slides = document.querySelectorAll("#heroSlider .slide");
 const prev = document.querySelector(".hero-prev");
@@ -940,25 +1130,24 @@ const dotsContainer = document.querySelector(".hero-dots");
 
 let index = 0;
 
-// cria as bolinhas
+// bolinhas
 slides.forEach((_, i) => {
   const dot = document.createElement("button");
-  if(i === 0) dot.classList.add("active");
+  if (i === 0) dot.classList.add("active");
   dot.addEventListener("click", () => goTo(i));
   dotsContainer.appendChild(dot);
 });
 
 const dots = document.querySelectorAll(".hero-dots button");
 
-function update(){
+function update() {
   slides.forEach(s => s.classList.remove("active"));
   dots.forEach(d => d.classList.remove("active"));
-
   slides[index].classList.add("active");
   dots[index].classList.add("active");
 }
 
-function goTo(i){
+function goTo(i) {
   index = i;
   update();
 }
@@ -973,14 +1162,9 @@ next.onclick = () => {
   update();
 };
 
-// auto-play opcional
+// autoplay
 setInterval(() => {
   index = (index + 1) % slides.length;
   update();
 }, 6000);
-
 </script>
-
-
-</body>
-</html>
